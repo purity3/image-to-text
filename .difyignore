@@ -178,4 +178,5 @@ cython_debug/
 Thumbs.db
 
 # OCR token cache files and other cache
-cache/
+cache/*
+!cache/.gitkeep

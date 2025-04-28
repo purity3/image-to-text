@@ -171,4 +171,5 @@ cython_debug/
 .vscode/
 
 # OCR token cache files and other cache
-cache/
+cache/*
+!cache/.gitkeep
