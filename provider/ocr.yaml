@@ -1,17 +1,125 @@
 identity:
   author: purity3
-  name: ocr
+  name: image-to-text
   label:
-    en_US: ocr
-    zh_Hans: ocr
+    en_US: image-to-text
+    zh_Hans: 图片识别助手
   description:
     en_US: A versatile OCR plugin that integrates text recognition capabilities from Baidu, Huawei, and Alibaba cloud services for accurate and efficient image-to-text conversion.
     zh_Hans: 一个集成了百度、华为和阿里云服务的多功能OCR插件，提供准确高效的图片文字识别转换功能。
   icon: icon.svg
-
+credentials_for_provider:
+  default_provider:
+    type: select
+    required: true
+    default: baidu
+    label:
+      en_US: Default Provider
+      zh_Hans: 默认提供商
+    options:
+      - value: baidu
+        label:
+          en_US: Baidu OCR
+          zh_Hans: 百度OCR
+      - value: huawei
+        label:
+          en_US: Huawei OCR
+          zh_Hans: 华为OCR
+      - value: aliyun
+        label:
+          en_US: Alibaba Cloud OCR
+          zh_Hans: 阿里云OCR
+    help:
+      en_US: Select the default OCR provider.
+      zh_Hans: 选择默认的OCR提供商。
+  baidu_client_id:
+    type: text-input
+    required: false
+    label:
+      en_US: Baidu Client ID
+      zh_Hans: 百度 Client ID
+    placeholder:
+      en_US: 请输入您的百度 Client ID
+      zh_Hans: 请输入您的百度 Client ID
+    help:
+      en_US: Please enter your Baidu Cloud API Key (Client ID). You need to create an OCR application in Baidu AI Platform to get this. If you don't plan to use Baidu OCR service, you can leave this blank.
+      zh_Hans: 请输入您的百度智能云API Key（即Client ID）。您需要在百度AI开放平台创建OCR应用才能获取。如果您不打算使用百度OCR服务，可以不填写此项。
+  baidu_client_secret:
+    type: secret-input
+    required: false
+    label:
+      en_US: Baidu Secret Key
+      zh_Hans: 百度 Secret Key
+    placeholder:
+      en_US: Please enter your Baidu Secret Key
+      zh_Hans: 请输入您的百度 Secret Key
+    help:
+      en_US: Please enter your Baidu Cloud Secret Key. This is paired with your API Key for authentication. If you don't plan to use Baidu OCR service, you can leave this blank.
+      zh_Hans: 请输入您的百度智能云Secret Key。此密钥与API Key配对使用，用于身份认证。如果您不打算使用百度OCR服务，可以不填写此项。
+  huawei_ak:
+    type: text-input
+    required: false
+    label:
+      en_US: Huawei Access Key
+      zh_Hans: 华为 Access Key
+    placeholder:
+      en_US: Please enter your Huawei Access Key
+      zh_Hans: 请输入您的华为 Access Key
+    help:
+      en_US: Please enter your Huawei Cloud Access Key. You need to create an OCR application in Huawei Cloud to get this. If you don't plan to use Huawei OCR service, you can leave this blank.
+      zh_Hans: 请输入您的华为智能云Access Key。您需要在华为云创建OCR应用才能获取。如果您不打算使用华为OCR服务，可以不填写此项。
+  huawei_sk:
+    type: secret-input
+    required: false
+    label:
+      en_US: Huawei Secret Key
+      zh_Hans: 华为 Secret Key
+    placeholder:
+      en_US: Please enter your Huawei Secret Key
+      zh_Hans: 请输入您的华为 Secret Key
+    help:
+      en_US: Please enter your Huawei Cloud Secret Key. This is paired with your Access Key for authentication. If you don't plan to use Huawei OCR service, you can leave this blank.
+      zh_Hans: 请输入您的华为智能云Secret Key。此密钥与Access Key配对使用，用于身份认证。如果您不打算使用华为OCR服务，可以不填写此项。
+  huawei_region:
+    type: text-input
+    required: false
+    label:
+      en_US: Huawei Region
+      zh_Hans: 华为区域
+    placeholder:
+      en_US: Please enter your Huawei Region
+      zh_Hans: 请输入您的华为区域
+    help:
+      en_US: Please enter your Huawei Cloud Region. If you don't plan to use Huawei OCR service, you can leave this blank.
+      zh_Hans: 请输入您的华为智能云区域。如果您不打算使用华为OCR服务，可以不填写此项。
+  aliyun_access_key_id:
+    type: text-input
+    required: false
+    label:
+      en_US: Alibaba Cloud Access Key ID
+      zh_Hans: 阿里云 Access Key ID
+    placeholder:
+      en_US: Please enter your Alibaba Cloud Access Key ID
+      zh_Hans: 请输入您的阿里云 Access Key ID
+    help:
+      en_US: Please enter your Alibaba Cloud Access Key ID. You need to create an OCR application in Alibaba Cloud to get this. If you don't plan to use Alibaba Cloud OCR service, you can leave this blank.
+      zh_Hans: 请输入您的阿里云Access Key ID。您需要在阿里云创建OCR应用才能获取。如果您不打算使用阿里云OCR服务，可以不填写此项。
+  aliyun_access_key_secret:
+    type: secret-input
+    required: false
+    label:
+      en_US: Alibaba Cloud Access Key Secret
+      zh_Hans: 阿里云 Access Key Secret
+    placeholder:
+      en_US: Please enter your Alibaba Cloud Access Key Secret
+      zh_Hans: 请输入您的阿里云 Access Key Secret
+    help:
+      en_US: Please enter your Alibaba Cloud Access Key Secret. This is paired with your Access Key ID for authentication. If you don't plan to use Alibaba Cloud OCR service, you can leave this blank.
+      zh_Hans: 请输入您的阿里云Access Key Secret。此密钥与Access Key ID配对使用，用于身份认证。如果您不打算使用阿里云OCR服务，可以不填写此项。
 tools:
   - tools/ocr_baidu.yaml
-  - tools/ocr_ali.yaml
+  - tools/ocr_aliyun.yaml
+  - tools/ocr_huawei.yaml
 extra:
   python:
     source: provider/ocr.py

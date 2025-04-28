@@ -2,24 +2,80 @@ identity:
   name: ocr-baidu
   author: purity3
   label:
-    en_US: ocr-baidu
-    zh_Hans: ocr-baidu
+    en_US: Baidu OCR
+    zh_Hans: 百度OCR识别
 description:
   human:
-    en_US: A versatile OCR plugin that integrates text recognition capabilities from Baidu, Huawei, and Alibaba cloud services for accurate and efficient image-to-text conversion.
-    zh_Hans: A versatile OCR plugin that integrates text recognition capabilities from Baidu, Huawei, and Alibaba cloud services for accurate and efficient image-to-text conversion.
-  llm: A versatile OCR plugin that integrates text recognition capabilities from Baidu, Huawei, and Alibaba cloud services for accurate and efficient image-to-text conversion.
+    en_US: A tool for recognizing text in images using Baidu OCR service
+    zh_Hans: 使用百度OCR服务识别图片中的文字
+  llm: This tool allows you to extract text from images using Baidu OCR service. Provide an image URL and specify language options to recognize text accurately.
 parameters:
-  - name: query
+  - name: url
     type: string
     required: true
     label:
-      en_US: Query string
-      zh_Hans: 查询语句
+      en_US: Image URL
+      zh_Hans: 图片URL
     human_description:
-      en_US: A versatile OCR plugin that integrates text recognition capabilities from Baidu, Huawei, and Alibaba cloud services for accurate and efficient image-to-text conversion.
-      zh_Hans: A versatile OCR plugin that integrates text recognition capabilities from Baidu, Huawei, and Alibaba cloud services for accurate and efficient image-to-text conversion.
-    llm_description: A versatile OCR plugin that integrates text recognition capabilities from Baidu, Huawei, and Alibaba cloud services for accurate and efficient image-to-text conversion.
+      en_US: The URL of the image to be processed
+      zh_Hans: 要处理的图片URL地址
+    llm_description: Provide the complete URL of the image from which you want to extract text. The image must be accessible via this URL.
+    form: llm
+  - name: language
+    type: select
+    required: true
+    label:
+      en_US: Language
+      zh_Hans: 语言
+    options:
+      - value: CHN_ENG
+        label:
+          en_US: Chinese and English
+          zh_Hans: 中英文
+      - value: ENG
+        label:
+          en_US: English
+          zh_Hans: 英文
+      - value: POR
+        label:
+          en_US: Portuguese
+          zh_Hans: 葡萄牙语
+      - value: FRE
+        label:
+          en_US: French
+          zh_Hans: 法语
+      - value: GER
+        label:
+          en_US: German
+          zh_Hans: 德语
+      - value: ITA
+        label:
+          en_US: Italian
+          zh_Hans: 意大利语
+      - value: SPA
+        label:
+          en_US: Spanish
+          zh_Hans: 西班牙语
+      - value: KOR
+        label:
+          en_US: Korean
+          zh_Hans: 韩语
+    default: CHN_ENG
+    human_description:
+      en_US: Language of the text to be recognized
+      zh_Hans: 要识别的文字语言
+    llm_description: |
+      Specify the language of the text in the image:
+      - CHN_ENG: Chinese and English (default)
+      - ENG: English
+      - POR: Portuguese
+      - FRE: French
+      - GER: German
+      - ITA: Italian
+      - SPA: Spanish
+      - RUS: Russian
+      - JAP: Japanese
+      - KOR: Korean
     form: llm
 extra:
   python:
