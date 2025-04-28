@@ -107,11 +107,29 @@ class OcrProvider(ToolProvider):
                 
                 # 只有当所有必要参数都有非None值时才调用authenticate
                 if len(provider_creds) == len(config["params"]):
+                    # 百度提供商特殊处理 - 删除缓存的token文件
+                    if provider == "baidu":
+                        import os
+                        from pathlib import Path
+                        
+                        # 定义缓存目录和token文件路径
+                        cache_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "cache")
+                        token_file = os.path.join(cache_dir, "baidu_ocr_token.json")
+                        
+                        # 如果文件存在，则删除它
+                        if os.path.exists(token_file):
+                            try:
+                                os.remove(token_file)
+                                print(f"已删除百度OCR token缓存文件: {token_file}")
+                            except Exception as e:
+                                print(f"删除百度OCR token缓存文件失败: {e}")
+                    
+                    # 进行常规认证
                     config["provider_class"]().authenticate(**provider_creds)
                     
-            except ValueError as e:
+            except Exception as e:
                 # 重新抛出异常，添加提供商信息
-                raise ValueError(f"{config['display_name']}提供商参数验证失败: {str(e)}")
+                raise ValueError(f"{provider}提供商参数验证失败: {str(e)}")
                 
     def _get_providers_to_check(self, credentials: dict[str, Any]) -> List[str]:
         """

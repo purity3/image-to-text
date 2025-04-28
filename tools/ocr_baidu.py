@@ -75,7 +75,7 @@ class BaiduOcrTool(Tool):
                 yield self.create_json_message({
                     "success": False,
                     "error": result.get("error_msg", "未知错误"),
-                    "provider": "百度OCR"
+                    "provider": "baidu"
                 })
             else:
                 # 识别成功
@@ -91,9 +91,9 @@ class BaiduOcrTool(Tool):
                 yield self.create_json_message({
                     "success": True,
                     "text": text_content,
-                    "provider": "百度OCR",
+                    "provider": "baidu",
                     "language": language,
-                    "raw_response": result.get("raw_response")
+                    "raw": result.get("raw_response", {})
                 })
         
         except Exception as e:
@@ -103,5 +103,5 @@ class BaiduOcrTool(Tool):
             yield self.create_json_message({
                 "success": False,
                 "error": str(e),
-                "provider": "百度OCR"
+                "provider": "baidu"
             })

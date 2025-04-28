@@ -56,7 +56,7 @@ class AliyunOcrTool(Tool):
                 yield self.create_json_message({
                     "success": False,
                     "error": result.get("error_msg", "未知错误"),
-                    "provider": "阿里云OCR"
+                    "provider": "aliyun"
                 })
             else:
                 # 识别成功
@@ -72,8 +72,8 @@ class AliyunOcrTool(Tool):
                 yield self.create_json_message({
                     "success": True,
                     "text": text_content,
-                    "provider": "阿里云OCR",
-                    "raw_response": result.get("raw_response")
+                    "provider": "aliyun",
+                    "raw": result.get("raw_response", {})
                 })
         
         except Exception as e:
@@ -83,5 +83,5 @@ class AliyunOcrTool(Tool):
             yield self.create_json_message({
                 "success": False,
                 "error": str(e),
-                "provider": "阿里云OCR"
+                "provider": "aliyun"
             }) 
