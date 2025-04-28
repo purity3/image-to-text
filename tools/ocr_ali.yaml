@@ -1,0 +1,26 @@
+identity:
+  name: ocr-ali
+  author: purity3
+  label:
+    en_US: ocr-ali
+    zh_Hans: ocr-ali
+description:
+  human:
+    en_US: A versatile OCR plugin that integrates text recognition capabilities from Baidu, Huawei, and Alibaba cloud services for accurate and efficient image-to-text conversion.
+    zh_Hans: A versatile OCR plugin that integrates text recognition capabilities from Baidu, Huawei, and Alibaba cloud services for accurate and efficient image-to-text conversion.
+  llm: A versatile OCR plugin that integrates text recognition capabilities from Baidu, Huawei, and Alibaba cloud services for accurate and efficient image-to-text conversion.
+parameters:
+  - name: query
+    type: string
+    required: true
+    label:
+      en_US: Query string
+      zh_Hans: 查询语句
+    human_description:
+      en_US: A versatile OCR plugin that integrates text recognition capabilities from Baidu, Huawei, and Alibaba cloud services for accurate and efficient image-to-text conversion.
+      zh_Hans: A versatile OCR plugin that integrates text recognition capabilities from Baidu, Huawei, and Alibaba cloud services for accurate and efficient image-to-text conversion.
+    llm_description: A versatile OCR plugin that integrates text recognition capabilities from Baidu, Huawei, and Alibaba cloud services for accurate and efficient image-to-text conversion.
+    form: llm
+extra:
+  python:
+    source: tools/ocr_ali.py

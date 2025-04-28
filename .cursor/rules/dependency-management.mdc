@@ -1,0 +1,27 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# 依赖管理规则
+
+## 依赖文件要求
+
+所有项目依赖必须添加到 [requirements.txt](mdc:requirements.txt) 文件中。请遵循以下规则：
+
+1. 所有Python包依赖必须在requirements.txt中声明
+2. 依赖版本应当明确指定，使用精确版本号（例如：`package==1.2.3`）或兼容版本规范（例如：`package~=1.2.3`）
+3. 不要在代码中使用未在requirements.txt中声明的包
+
+## 当前依赖
+
+目前项目依赖：
+- dify_plugin~=0.0.1b72
+
+## 添加新依赖流程
+
+添加新依赖时：
+1. 将依赖添加到requirements.txt
+2. 使用`pip install -r requirements.txt`更新虚拟环境
+3. 验证新依赖在代码中正常工作
+4. 提交requirements.txt的变更

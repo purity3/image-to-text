@@ -1,0 +1,42 @@
+version: 0.0.1
+type: plugin
+author: purity3
+name: image-to-text
+label:
+  en_US: image-to-text
+  zh_Hans: 图片识别助手
+description:
+  en_US: A versatile OCR plugin that integrates text recognition capabilities from Baidu, Huawei, and Alibaba cloud services for accurate and efficient image-to-text conversion.
+  zh_Hans: 一个集成了百度、华为和阿里云服务的多功能OCR插件，提供准确高效的图片文字识别转换功能。
+icon: icon.svg
+resource:
+  memory: 268435456
+  permission:
+    tool:
+      enabled: true
+    model:
+      enabled: true
+      llm: true
+      text_embedding: false
+      rerank: false
+      tts: false
+      speech2text: false
+      moderation: false
+    storage:
+      enabled: true
+      size: 1048576
+plugins:
+  tools:
+    - provider/ocr.yaml # 通用 OCR
+meta:
+  version: 0.0.1
+  arch:
+    - amd64
+    - arm64
+  runner:
+    language: python
+    version: "3.12"
+    entrypoint: main
+created_at: 2025-04-28T11:54:51.959456+08:00
+privacy: PRIVACY.md
+verified: false

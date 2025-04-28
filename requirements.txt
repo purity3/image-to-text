@@ -1,0 +1,7 @@
+dify_plugin~=0.0.1b72
+requests>=2.28.1
+alibabacloud-ocr-api20210707>=2.0.0
+alibabacloud-tea-openapi>=0.3.7
+alibabacloud-tea-util>=0.3.7
+huaweicloudsdkocr>=3.1.70
+huaweicloudsdkcore>=3.1.70
