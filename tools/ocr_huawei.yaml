@@ -1,0 +1,26 @@
+identity:
+  name: ocr-huawei
+  author: purity3
+  label:
+    en_US: Huawei OCR
+    zh_Hans: 华为云OCR识别
+description:
+  human:
+    en_US: A tool for recognizing text in images using Huawei Cloud OCR service
+    zh_Hans: 使用华为云OCR服务识别图片中的文字
+  llm: This tool allows you to extract text from images using Huawei Cloud OCR service. Provide an image URL to recognize text accurately.
+parameters:
+  - name: url
+    type: string
+    required: true
+    label:
+      en_US: Image URL
+      zh_Hans: 图片URL
+    human_description:
+      en_US: The URL of the image to be processed
+      zh_Hans: 要处理的图片URL地址
+    llm_description: Provide the complete URL of the image from which you want to extract text. The image must be accessible via this URL.
+    form: llm
+extra:
+  python:
+    source: tools/ocr_huawei.py 

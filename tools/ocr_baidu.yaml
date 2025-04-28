@@ -22,22 +22,44 @@ parameters:
     llm_description: Provide the complete URL of the image from which you want to extract text. The image must be accessible via this URL.
     form: llm
   - name: language
-    type: string
-    required: false
+    type: select
+    required: true
     label:
       en_US: Language
       zh_Hans: 语言
-    enum:
-      - CHN_ENG
-      - ENG
-      - POR
-      - FRE
-      - GER
-      - ITA
-      - SPA
-      - RUS
-      - JAP
-      - KOR
+    options:
+      - value: CHN_ENG
+        label:
+          en_US: Chinese and English
+          zh_Hans: 中英文
+      - value: ENG
+        label:
+          en_US: English
+          zh_Hans: 英文
+      - value: POR
+        label:
+          en_US: Portuguese
+          zh_Hans: 葡萄牙语
+      - value: FRE
+        label:
+          en_US: French
+          zh_Hans: 法语
+      - value: GER
+        label:
+          en_US: German
+          zh_Hans: 德语
+      - value: ITA
+        label:
+          en_US: Italian
+          zh_Hans: 意大利语
+      - value: SPA
+        label:
+          en_US: Spanish
+          zh_Hans: 西班牙语
+      - value: KOR
+        label:
+          en_US: Korean
+          zh_Hans: 韩语
     default: CHN_ENG
     human_description:
       en_US: Language of the text to be recognized
@@ -54,7 +76,7 @@ parameters:
       - RUS: Russian
       - JAP: Japanese
       - KOR: Korean
-    form: form
+    form: llm
 extra:
   python:
     source: tools/ocr_baidu.py
