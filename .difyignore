@@ -182,3 +182,4 @@ cache/*
 
 .certs/
 .output/
+.cursor/
